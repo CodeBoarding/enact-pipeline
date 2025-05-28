@@ -50,6 +50,7 @@ class CellTypistPipeline(ENACT):
         # Check if the model file exists on disk
         if os.path.isfile(self.cell_typist_model):
             pass
+            # The model file already exists on disk; no further action is required.
         # Append '.pkl' if not already present and recheck
         elif self.cell_typist_model.endswith(".pkl"):
             self.cell_typist_model = self.cell_typist_model + ".pkl"
