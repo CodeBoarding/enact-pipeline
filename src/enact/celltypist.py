@@ -47,10 +47,19 @@ class CellTypistPipeline(ENACT):
         sc.pp.normalize_total(adata, target_sum=1e4)
         sc.pp.log1p(adata)
 
-        # download celltypist model and predict cell type
-        if ".pkl" not in self.cell_typist_model:
-            self.cell_typist_model = self.cell_typist_model + ".pkl"
-        models.download_models(model=self.cell_typist_model)
+        # Check if the model file exists on disk
+        if os.path.isfile(self.cell_typist_model):
+            # The model file already exists on disk; no further action is required.
+            pass
+        else:
+            # The model file does not exist on disk;
+            if not self.cell_typist_model.endswith(".pkl"):
+                # Append '.pkl' if not already present
+                self.cell_typist_model = self.cell_typist_model + ".pkl"
+            if not os.path.isfile(self.cell_typist_model):
+                # Download model if it does not exist
+                models.download_models(model=self.cell_typist_model)
+
         predictions = celltypist.annotate(adata, model=self.cell_typist_model)
         adata = predictions.to_adata(
             insert_labels=True, insert_conf=True, insert_prob=True

@@ -1,0 +1,5 @@
+# Force everything to be treated as Python
+* linguist-language=Python
+# Ignore Jupyter notebooks and HTML files in language statistics
+*.ipynb linguist-generated
+*.html linguist-generated
