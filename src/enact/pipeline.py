@@ -394,7 +394,7 @@ class ENACT:
             )
             # Store resulting labels as sparse matrix NPZ - super efficient space wise
             labels_sparse = sparse.csr_matrix(labels)
-            labels_npz_path = self.cache_dir + "stardist_labels.npz"
+            labels_npz_path = os.path.join(self.cache_dir, "stardist_labels.npz")
             sparse.save_npz(labels_npz_path, labels_sparse)
             nr_of_labels = len(np.unique(labels_sparse.data))
             self.logger.info(f"<run_segmentation> Found {nr_of_labels} objects")
