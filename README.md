@@ -449,6 +449,10 @@ The **[output demo notebook](ENACT_outputs_demo.ipynb)** provides a comprehensiv
 
 This notebook serves as a helpful resource for navigating and analyzing ENACT output data effectively.
 
+>[!NOTE]
+>For helper scripts to work with ENACT results, please refer to the [visiumhd-helpers](https://github.com/Mena-SA-Kamel/visiumhd-helpers) repository. This includes demo scripts for:
+>- Running Sargent on ENACT bin-to-cell assignment results
+>- Converting ENACT outputs to Seurat-compatible format
 
 ## Visualizing Results on TissUUmaps
 To view results on [TissUUmaps](https://tissuumaps.github.io), begin by installing TissUUmaps by following the instructions at:
